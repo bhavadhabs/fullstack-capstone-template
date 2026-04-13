@@ -3,11 +3,11 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const url = process.env.MONGO_URI;
+const uri = process.env.MONGO_URI;
 
-if (!url) throw new Error("MongoDB URL missing in .env");
+if (!uri) throw new Error("MONGO_URI missing in .env");
 
-const client = new MongoClient(url);
+const client = new MongoClient(uri);
 
 let db;
 
@@ -15,13 +15,13 @@ const connectToDatabase = async () => {
   try {
     await client.connect();
 
-    // ✅ FIXED DATABASE NAME
+    // IMPORTANT: use correct DB name
     db = client.db("giftlink");
 
     console.log("Connected to MongoDB");
     return db;
-  } catch (error) {
-    console.error("DB connection error:", error);
+  } catch (err) {
+    console.error("DB connection error:", err);
     process.exit(1);
   }
 };

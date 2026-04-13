@@ -11,54 +11,44 @@ const searchRoutes = require("./routes/searchRoutes");
 
 const app = express();
 
+// CORS FIX (VERY IMPORTANT)
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "*",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );
 
 app.use(express.json());
 
-// Logger
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-});
-
 // Routes
 app.use("/api/gifts", giftRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/search", searchRoutes);
 
-// Health check
+// Health check (Render)
 app.get("/healthz", (req, res) => {
-  res.status(200).send("OK");
+  res.send("OK");
 });
 
-// Root
+// Test route
 app.get("/", (req, res) => {
-  res.send("GiftLink Backend is running!");
-});
-
-// ADD THIS (VERY IMPORTANT)
-app.use((req, res) => {
-  res.status(404).json({ error: "Route not found" });
+  res.send("GiftLink Backend Running");
 });
 
 const PORT = process.env.PORT || 3060;
 
-const startServer = async () => {
+const start = async () => {
   try {
     await connectToDatabase();
-    console.log("Connected to MongoDB");
+    console.log("DB connected");
 
     app.listen(PORT, "0.0.0.0", () => {
-      console.log(`Server running on port ${PORT}`);
+      console.log(`Server running on ${PORT}`);
     });
   } catch (err) {
-    console.error("Server start failed:", err);
+    console.error(err);
   }
 };
 
-startServer();
+start();
