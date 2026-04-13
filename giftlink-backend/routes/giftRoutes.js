@@ -4,9 +4,7 @@ const { ObjectId } = require("mongodb");
 
 const router = express.Router();
 
-// =========================
 // GET ALL GIFTS
-// =========================
 router.get("/", async (req, res) => {
   try {
     const db = getDb();
@@ -18,9 +16,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// =========================
-// GET GIFT BY ID (FIXED)
-// =========================
+// GET GIFT BY ID
 router.get("/:id", async (req, res) => {
   try {
     const db = getDb();
@@ -45,22 +41,19 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// =========================
 // ADD GIFT
-// =========================
 router.post("/", async (req, res) => {
   try {
     const db = getDb();
     const result = await db.collection("gifts").insertOne(req.body);
     res.status(201).json(result);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to add gift" });
   }
 });
 
-// =========================
 // DELETE GIFT
-// =========================
 router.delete("/:id", async (req, res) => {
   try {
     const db = getDb();
@@ -76,6 +69,7 @@ router.delete("/:id", async (req, res) => {
 
     res.json({ message: "Deleted successfully" });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to delete" });
   }
 });
