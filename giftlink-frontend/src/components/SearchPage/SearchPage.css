@@ -1,0 +1,33 @@
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.search-bar input {
+    width: 75%;
+}
+
+.search-bar button {
+    width: 25%;
+}
+
+.card {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+}

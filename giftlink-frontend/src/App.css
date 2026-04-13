@@ -1,0 +1,354 @@
+/* =========================
+   GLOBAL RESET + SMOOTH SCROLL
+========================= */
+
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth; /* ✅ smooth scroll */
+  scroll-padding-top: 90px; /* ✅ prevents navbar overlap */
+}
+
+body {
+  margin: 0;
+  padding-top: 80px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #eaeded;
+  animation: fadeInBody 0.5s ease-in;
+}
+
+/* =========================
+   FADE IN ANIMATION
+========================= */
+
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; /* ✅ fixed height */
+  z-index: 9999;
+
+  background-color: #ffffff !important;
+  padding: 12px 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #e6e6e6;
+
+  animation: slideDown 0.4s ease-in-out;
+}
+
+/* Navbar animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.navbar-brand {
+  color: #111 !important;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 40px;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #007185 !important;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: #111 !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  transition: all 0.25s ease;
+}
+
+.nav-link:hover {
+  color: #007185 !important;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-login {
+  background-color: #28a745 !important;
+  color: white !important;
+  font-size: 1rem;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  min-width: 110px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #218838 !important;
+  transform: scale(1.05);
+}
+
+.btn-register {
+  background-color: #f0c14b !important;
+  color: #111 !important;
+  font-size: 1rem;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  border: 1px solid #a88734;
+  min-width: 110px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+  background-color: #ddb347 !important;
+  transform: scale(1.05);
+}
+
+.btn-logout {
+  background-color: #dc3545 !important;
+  color: white !important;
+  font-size: 1rem;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: #b02a37 !important;
+  transform: scale(1.05);
+}
+
+/* =========================
+   USER BADGE
+========================= */
+
+.profile-text {
+  background-color: #f1f1f1;
+  color: #111;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-text:hover {
+  background-color: #e2e2e2;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  padding: 2rem;
+  margin-top: 20px;
+  animation: fadeInBody 0.5s ease-in;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h2.mb-3 {
+  margin-top: 40px;
+}
+
+/* =========================
+   PRODUCT CARDS
+========================= */
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInBody 0.5s ease-in;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+/* IMAGE */
+.card-img-top {
+  height: 200%;
+  width: 100%;
+  object-fit: contain;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #111;
+}
+
+/* BUTTON */
+.btn-primary {
+  background-color: #007185 !important;
+  border: none;
+  border-radius: 20px;
+  width: 100%;
+  font-weight: 600;
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #004f5a !important;
+  transform: scale(1.05);
+}
+
+/* =========================
+   IMAGE PLACEHOLDER
+========================= */
+
+.image-placeholder-large {
+  width: 100%;
+  height: 200px;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.product-image-large {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.no-image-available-large {
+  font-size: 18px;
+  color: #666;
+}
+
+/* =========================
+   DETAILS PAGE
+========================= */
+
+.card-header {
+  background-color: #232f3e;
+  color: white;
+  padding: 12px;
+}
+
+.details-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* =========================
+   UTILITIES
+========================= */
+
+.text-muted {
+  color: #6c757d;
+}
+
+.text-success {
+  color: #28a745;
+}
+
+.date-added {
+  margin-top: auto;
+}
+
+/* =========================
+   PRODUCT DETAIL IMAGE FIX
+========================= */
+.product-detail-image {
+  width: 100%;
+  max-height: 350px;
+
+  object-fit: contain; /* ✅ FULL IMAGE */
+  object-position: center;
+
+  display: block;
+  margin: 0 auto;
+
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 10px;
+
+  transition: transform 0.3s ease;
+}
+
+/* subtle smooth effect */
+.product-detail-image:hover {
+  transform: scale(1.02);
+}
+
+/* =========================
+   NO IMAGE BOX
+========================= */
+.no-image-box {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #e0e0e0;
+  color: #666;
+  font-size: 18px;
+  border-radius: 10px;
+}

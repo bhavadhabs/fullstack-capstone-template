@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "cors": "^2.8.6",
+    "react-router-dom": "^7.13.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
