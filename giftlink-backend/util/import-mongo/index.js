@@ -4,7 +4,7 @@ const path = require("path");
 
 // ✅ Atlas MongoDB URI (REPLACE PASSWORD)
 const uri =
-  "mongodb+srv://bhavadha30:IamBhavadha3001@cluster0.rbnfu5e.mongodb.net/giftlink?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://bhavadha30:S9XJKFh61gy0Ws3o@cluster0.rbnfu5e.mongodb.net/giftlink?retryWrites=true&w=majority&appName=Cluster0";
 
 // Database config
 const dbName = "giftlink";

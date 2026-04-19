@@ -15,7 +15,6 @@ const connectToDatabase = async () => {
   try {
     await client.connect();
 
-    // IMPORTANT: use correct DB name
     db = client.db("giftlink");
 
     console.log("Connected to MongoDB");
