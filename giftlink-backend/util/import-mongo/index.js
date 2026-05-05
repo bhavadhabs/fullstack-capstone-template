@@ -2,9 +2,8 @@ const { MongoClient } = require("mongodb");
 const fs = require("fs");
 const path = require("path");
 
-// ✅ Atlas MongoDB URI (REPLACE PASSWORD)
 const uri =
-  "mongodb+srv://bhavadha30:S9XJKFh61gy0Ws3o@cluster0.rbnfu5e.mongodb.net/giftlink?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://bhavadhabs:f7RpdL2lGSb6jT2t@cluster0.rbnfu5e.mongodb.net/giftlink?retryWrites=true&w=majority";
 
 // Database config
 const dbName = "giftlink";
@@ -37,7 +36,7 @@ async function loadData() {
     console.error("Error:", err.message);
   } finally {
     await client.close();
-    console.log("🔌 Connection closed");
+    console.log("Connection closed");
   }
 }
 
