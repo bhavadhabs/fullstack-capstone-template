@@ -9,8 +9,17 @@ function MainPage() {
 
   useEffect(() => {
     fetch(`${urlConfig.backendUrl}/api/gifts`)
-      .then((res) => res.json())
-      .then((data) => setGifts(data));
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch gifts");
+        }
+        return res.json();
+      })
+      .then((data) => setGifts(data))
+      .catch((err) => {
+        console.error("Error fetching gifts:", err);
+        setGifts([]);
+      });
   }, []);
 
   return (
@@ -45,9 +54,9 @@ function MainPage() {
                   className="card-img-top"
                   alt={gift.name}
                   style={{
-                    height: "230%",
+                    height: "200px",
                     width: "100%",
-                    objectFit: "cover",   // 🔥 FIXED
+                    objectFit: "cover",
                     backgroundColor: "#fff"
                   }}
                 />
