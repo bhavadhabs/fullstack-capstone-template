@@ -11,43 +11,45 @@ const searchRoutes = require("./routes/searchRoutes");
 
 const app = express();
 
-// CORS FIX (VERY IMPORTANT)
+/* ================= CORS CONFIG ================= */
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL || "*",
     credentials: true,
   })
 );
 
 app.use(express.json());
 
-// Routes
+/* ================= ROUTES ================= */
 app.use("/api/gifts", giftRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/search", searchRoutes);
 
-// Health check (Render)
+/* ================= HEALTH CHECK ================= */
 app.get("/healthz", (req, res) => {
-  res.send("OK");
+  res.status(200).json({ status: "OK" });
 });
 
-// Test route
+/* ================= HOME ================= */
 app.get("/", (req, res) => {
   res.send("GiftLink Backend Running");
 });
 
 const PORT = process.env.PORT || 3060;
 
+/* ================= START SERVER ================= */
 const start = async () => {
   try {
     await connectToDatabase();
     console.log("DB connected");
 
     app.listen(PORT, "0.0.0.0", () => {
-      console.log(`Server running on ${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (err) {
-    console.error(err);
+    console.error("Startup error:", err);
+    process.exit(1);
   }
 };
 
