@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const uri =
-  "mongodb+srv://bhavadhabs:f7RpdL2lGSb6jT2t@cluster0.rbnfu5e.mongodb.net/giftlink?retryWrites=true&w=majority";
+  "mongodb+srv://bhavadhabs:NwXey1O6jNXMA0Is@cluster0.rbnfu5e.mongodb.net/giftlink?retryWrites=true&w=majority";
 
 // Database config
 const dbName = "giftlink";
