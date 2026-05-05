@@ -2,8 +2,7 @@ const { MongoClient } = require("mongodb");
 const fs = require("fs");
 const path = require("path");
 
-const uri =
-  "mongodb+srv://bhavadhabs:iambhavadha_01@cluster0.rbnfu5e.mongodb.net/giftlink?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URI;
 
 // Database config
 const dbName = "giftlink";
